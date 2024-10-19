@@ -1,55 +1,88 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Форма</title>
+    <style>
+        .form_row {
+            margin-bottom: 10px;
+        }
+
+        .form_row label {
+            display: inline-block;
+            width: 200px;
+        }
+    </style>
 </head>
+
 <body>
     <main>
-        <form action="index.html" method="get" target="_blank">
-            <label for="name">Повне ім’я</label>
-            <input type="text" name="name" id="name">
+        <form action="#" method="get" target="_blank" id="my_form"
+            onsubmit="alert(decodeURI(new URLSearchParams(Array.from(new FormData(document.getElementById('my_form')))).toString()));return false;">
+            <div class="form_row">
+                <label for="name">Повне ім’я</label>
+                <input type="text" name="name" id="name" value="Введіть ім’я" minlength="2" maxlength="10">
+            </div>
             <br>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
+            <div class="form_row">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="Введіть імейл">
+            </div>
             <br>
-            <label for="pass">Пароль</label>
-            <input type="password" name="pass" id="pass">
+            <div class="form_row">
+                <label for="pass">Пароль</label>
+                <input type="password" name="pass" id="pass">
+            </div>
             <br>
-            <label for="pass">Пароль ще раз</label>
-            <input type="password" name="pass" id="pass">
+            <div class="form_row">
+                <label for="passd">Пароль ще раз</label>
+                <input type="password" name="pass" id="passd">
+            </div>
             <br>
-            <label>Стать</label>
-            <label><input type="radio" name="gender" value="male" checked> Чоловіча </label>
-            <label><input type="radio" name="gender" value="female"> Жіноча </label>
+            <div>
+                <label>Стать</label>
+                <label><input type="radio" name="gender" value="male" checked> Чоловіча </label>
+                <label><input type="radio" name="gender" value="female"> Жіноча </label>
+            </div>
             <br>
-            <label for="course">Курс</label>
-            <select name="курс" id="course">
-                <optgroup label="Виберіть курс">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                </optgroup>
-            </select>
+            <div class="form_row">
+                <label for="age">Вік</label>
+                <input type="number" name="age" id="age" min="16" max="60">
+            </div>
             <br>
-            <label for="age">Вік</label>
-            <input type="age">
+            <div class="form_row">
+                <label for="course">Курс</label>
+                <select name="курс" id="course">
+                    <optgroup label="Виберіть курс">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </optgroup>
+                </select>
+            </div>
+            <br>
+            <div class="form_row">
+                <label for="adress">Повна адреса</label>
+                <textarea name="adress" id="adress" cols="20" rows="5">Країна, регіон, місто/селище, вулиця</textarea>
+            </div>
             <br>
             <input type="checkbox" id="agree" name="agree" value="true" required>
             <label for="agree">
-            Я погоджуюсь з оброкою персональних даних
+                Я погоджуюсь з оброкою персональних даних
             </label>
-            <br>
+            <br><br>
             <button type="submit">
                 Очистити форму
             </button>
-            <br>
+            <br><br>
             <button type="submit">
                 Зареєструватись
             </button>
         </form>
     </main>
 </body>
+
 </html>
